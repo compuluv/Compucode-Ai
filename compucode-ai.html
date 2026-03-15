@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompuCode AI | AI Automation & Agents for Business</title>
+    <meta name="description" content="CompuCode AI installs practical AI receptionist and automation systems — voice AI overflow, missed-call recovery, SMS follow-ups, website chatbots, and lightweight AI agents that increase revenue and reduce manual work.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    
+    <!-- Tidio Chat Widget -->
+    <script src="//code.tidio.co/aykmtm2vqnprllweldc9kricwhyrslwd.js" async></script>
+    
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --text: #e8eef7;
+            --muted: #a8b3c7;
+            --accent: #5eead4;
+            --accent2: #60a5fa;
+            --warn: #fbbf24;
+            --ok: #34d399;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(0,0,0,.35);
+            --max: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background: radial-gradient(1200px 600px at 20% 0%, rgba(96,165,250,.15), transparent 60%),
+                        radial-gradient(900px 500px at 80% 20%, rgba(94,234,212,.12), transparent 60%),
+                        var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(11,15,20,.75);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-weight: 800;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            box-shadow: 0 10px 25px rgba(96,165,250,.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            padding: 9px 13px;
+            border-radius: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,.08);
+            color: var(--text);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.06);
+            color: var(--text);
+            font-weight: 700;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,.1);
+        }
+
+        .btn.primary {
+            border: none;
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            color: #071018;
+            box-shadow: 0 18px 40px rgba(94,234,212,.2), 0 18px 40px rgba(96,165,250,.15);
+        }
+
+        .btn.primary:hover {
+            filter: brightness(1.08);
+        }
+
+        .pill {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(94,234,212,.12);
+            border: 1px solid rgba(94,234,212,.25);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 70px 0 50px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: var(--radius);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card:before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: radial-gradient(800px 300px at 10% 0%, rgba(96,165,250,.22), transparent 60%),
+                        radial-gradient(600px 260px at 70% 40%, rgba(94,234,212,.14), transparent 55%);
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 44px;
+            line-height: 1.1;
+            margin: 16px 0 16px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sub {
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.6;
+            margin: 0 0 20px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .mini {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 0;
+        }
+
+        .section-head {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .section-head h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--text), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            font-size: 17px;
+            max-width: 780px;
+        }
+
+        /* Card Grids */
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(94,234,212,.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,.4);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .tagrow {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .tag {
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid rgba(255,255,255,.15);
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.04);
+        }
+
+        .tag.ok {
+            border-color: rgba(52,211,153,.3);
+            color: #baf7da;
+            background: rgba(52,211,153,.1);
+        }
+
+        .tag.warn {
+            border-color: rgba(251,191,36,.3);
+            color: #ffe3a3;
+            background: rgba(251,191,36,.1);
+        }
+
+        /* Split Layout */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid,
+            .grid3,
+            .split {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(11,15,20,.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid rgba(255,255,255,.1);
+                gap: 6px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .section-head h2 {
+                font-size: 30px;
+            }
+
+            .hero-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .section-head h2 {
+                font-size: 26px;
+            }
+        }
+
+        .bullets {
+            margin: 16px 0 0 20px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .bullets li {
+            margin-bottom: 8px;
+        }
+
+        .notice-box {
+            padding: 20px 24px;
+            border: 1px solid rgba(94,234,212,.2);
+            background: linear-gradient(135deg, rgba(96,165,250,.08), rgba(94,234,212,.08));
+            border-radius: var(--radius);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="wrap">
+            <div class="nav-inner">
+                <div class="brand" onclick="scrollToTop()">
+                    <div class="logo">🤖</div>
+                    <span>CompuCode AI</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#services" onclick="scrollToSection('services'); return false;">Services</a>
+                    <a href="#how-it-works" onclick="scrollToSection('how-it-works'); return false;">How It Works</a>
+                    <a href="#demo" onclick="scrollToSection('demo'); return false;">Live Demo</a>
+                    <a href="#pricing" onclick="scrollToSection('pricing'); return false;">Pricing</a>
+                    <a href="#contact" class="btn">Contact</a>
+                </div>
+                <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="top" class="hero">
+        <div class="wrap">
+            <div class="hero-grid">
+                <div class="hero-card">
+                    <div class="pill">
+                        <span>⚡</span>
+                        <span>Lean pilots • Fast installs • Measurable ROI</span>
+                    </div>
+
+                    <!-- Block 2: Updated headline -->
+                    <h1>Never let a missed or unanswered call become lost revenue. Install an AI Backup Receptionist that responds when your team can't.</h1>
+                    
+                    <!-- Block 3: Updated subtitle -->
+                    <p class="sub">
+                        CompuCode AI installs practical AI receptionist and automation systems — voice AI overflow, missed-call recovery, SMS follow-ups, website chatbots, and lightweight AI agents — so businesses respond faster, capture more leads, and reduce manual work without replacing staff.
+                    </p>
+
+                    <div class="hero-cta">
+                        <button class="btn primary" onclick="scrollToSection('contact')">Book a Consultation</button>
+                        <!-- Block 7: Call the Demo Line CTA -->
+                        <a class="btn primary" href="tel:+16472504921">Call the Demo Line</a>
+                        <button class="btn primary" onclick="scrollToSection('demo')">See Live Demo</button>
+                        <button class="btn" onclick="openTidio()">Chat with AI</button>
+                    </div>
+
+                    <div class="mini">
+                        We also build AI products (OptiBot, OptimizeKit, AppGenie). Blockchain initiatives are maintained separately as R&D.
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <h2 style="margin:0 0 10px; font-size:22px;">Fast ROI Focus</h2>
+                    <p class="sub" style="margin-bottom:16px;">
+                        3 core systems that drive immediate results.
+                    </p>
+
+                    <!-- Block 4: AI Backup Receptionist card replaces "Missed Call → SMS → Booking" -->
+                    <div class="card" style="margin-bottom:14px;">
+                        <h3>AI Backup Receptionist</h3>
+                        <p>When your team can't answer, AI steps in to greet callers, collect details, answer basic questions, and route the next step.</p>
+                        <div class="tagrow">
+                            <span class="tag ok">Voice AI</span>
+                            <span class="tag">Overflow calls</span>
+                            <span class="tag">Lead capture</span>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-bottom:14px;">
+                        <h3>AI Website Chatbot</h3>
+                        <p>Instant answers + lead capture 24/7.</p>
+                        <div class="tagrow">
+                            <span class="tag ok">24/7</span>
+                            <span class="tag">FAQ</span>
+                            <span class="tag">Qualify</span>
+                        </div>
+                        <div style="margin-top:14px;">
+                            <button class="btn primary" onclick="openTidio()" style="font-size:13px; padding:8px 12px;">Try AI Demo →</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Review & Retention Automation</h3>
+                        <p>More reviews + more repeat business automatically.</p>
+                        <div class="tagrow">
+                            <span class="tag ok">Reviews</span>
+                            <span class="tag">Retention</span>
+                            <span class="tag warn">Lean stack</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <!-- Services -->
+        <section id="services">
+            <div class="section-head">
+                <div>
+                    <h2>Services</h2>
+                    <p>Practical AI services designed for fast deployment and measurable outcomes.</p>
+                </div>
+            </div>
+
+            <div class="grid3">
+                <div class="card">
+                    <h3>AI Agents & Chatbots</h3>
+                    <p>Customer support, lead qualification, internal assistants, voice + text workflows.</p>
+                    <div class="tagrow">
+                        <span class="tag ok">24/7</span>
+                        <span class="tag">Lead capture</span>
+                        <span class="tag">Knowledge base</span>
+                    </div>
+                    <div style="margin-top:14px;">
+                        <button class="btn primary" onclick="openTidio()">Try Live Demo</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Business Automation</h3>
+                    <p>Follow-ups, intake, routing, reporting, task creation — automated.</p>
+                    <div class="tagrow">
+                        <span class="tag ok">Save time</span>
+                        <span class="tag">Reduce errors</span>
+                        <span class="tag">Track outcomes</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>AI-Powered Marketing</h3>
+                    <p>Automation + content systems + analytics to increase bookings and reduce wasted spend.</p>
+                    <div class="tagrow">
+                        <span class="tag ok">Conversion</span>
+                        <span class="tag">Content</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 6: How It Works section -->
+        <section id="how-it-works">
+            <div class="section-head">
+                <div>
+                    <h2>How It Works</h2>
+                    <p>AI doesn't replace your team. It covers the gaps when calls go unanswered.</p>
+                </div>
+            </div>
+
+            <div class="grid3">
+                <div class="card">
+                    <h3>1. Your team gets first chance</h3>
+                    <p>Your phone rings normally. If someone answers, business continues as usual.</p>
+                </div>
+                <div class="card">
+                    <h3>2. AI steps in only when needed</h3>
+                    <p>If nobody answers, AI greets the caller, gathers details, and keeps the lead engaged.</p>
+                </div>
+                <div class="card">
+                    <h3>3. You get the lead instantly</h3>
+                    <p>The call summary, callback request, or booking intent is sent to your team right away.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Section -->
+        <section id="demo">
+            <div class="section-head">
+                <div>
+                    <h2>Live Demo</h2>
+                    <!-- Block 5: Updated demo description -->
+                    <p>See the exact flow we install: <b>Call → No Answer → AI Receptionist → Lead Capture → Booking / Callback</b></p>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                    <!-- Block 7: Call demo line button also in demo section -->
+                    <a class="btn primary" href="tel:+16472504921">📞 Call the Demo Line</a>
+                    <button class="btn" onclick="runDemo()">Simulate Demo</button>
+                </div>
+            </div>
+
+            <div class="split">
+                <div class="card">
+                    <h3>What the caller experiences</h3>
+                    <div id="demoFeed" style="display:grid; gap:10px; margin-top:12px; min-height:200px;"></div>
+
+                    <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                        <button class="btn" onclick="runDemo()">Run Again</button>
+                        <button class="btn primary" onclick="openTidio()">Ask the Demo Bot</button>
+                    </div>
+
+                    <div class="mini">Tip: Call <a href="tel:+16472504921" style="color:var(--accent);">+1 (647) 250-4921</a> to experience the live AI Receptionist demo.</div>
+                </div>
+
+                <div class="card">
+                    <h3>What we install (in days)</h3>
+                    <ul class="bullets">
+                        <li>AI Backup Receptionist (voice overflow)</li>
+                        <li>Missed-call auto-text (instant response)</li>
+                        <li>Booking link / appointment routing</li>
+                        <li>24h & 48h follow-up messages</li>
+                        <li>Optional: website chatbot + lead capture</li>
+                        <li>Optional: review request automation</li>
+                    </ul>
+
+                    <div class="tagrow">
+                        <span class="tag ok">Fast install</span>
+                        <span class="tag">High ROI</span>
+                        <span class="tag warn">Lean stack</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing">
+          <div class="section-head">
+            <div>
+              <h2>Pricing</h2>
+              <p>Start with a lean pilot, prove results, then expand into a fuller AI call and automation system.</p>
+            </div>
+          </div>
+
+          <div class="grid3">
+            <div class="card">
+              <div class="pill" style="margin-bottom:14px;">
+                <span>🚀</span>
+                <span>Best first step</span>
+              </div>
+              <h3>Pilot</h3>
+              <p style="font-size:28px; font-weight:800; color:var(--text); margin-bottom:10px;">$1,500–$3,500</p>
+              <p>Ideal for businesses that want to test AI backup receptionist or missed-call recovery with minimal risk.</p>
+              <ul class="bullets">
+                <li>1 core workflow installed</li>
+                <li>AI backup receptionist or missed-call SMS</li>
+                <li>Basic lead capture</li>
+                <li>Callback or booking routing</li>
+                <li>Simple handoff + testing</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag ok">Fast setup</span>
+                <span class="tag">Low risk</span>
+                <span class="tag">ROI focused</span>
+              </div>
+              <div style="margin-top:18px;">
+                <button class="btn primary" onclick="scrollToSection('contact')">Start a Pilot</button>
+              </div>
+            </div>
+
+            <div class="card" style="border:1px solid rgba(94,234,212,.3); box-shadow:0 20px 50px rgba(0,0,0,.4);">
+              <div class="pill" style="margin-bottom:14px; background:rgba(96,165,250,.15); border-color:rgba(96,165,250,.28); color:#beddff;">
+                <span>⭐</span>
+                <span>Most popular</span>
+              </div>
+              <h3>Build</h3>
+              <p style="font-size:28px; font-weight:800; color:var(--text); margin-bottom:10px;">$4,000–$10,000</p>
+              <p>A fuller customer-response system for businesses ready to capture more calls, inquiries, and bookings consistently.</p>
+              <ul class="bullets">
+                <li>AI backup receptionist</li>
+                <li>Missed-call recovery workflow</li>
+                <li>SMS follow-up automation</li>
+                <li>Booking / callback logic</li>
+                <li>Website chatbot or intake workflow</li>
+                <li>Reporting + optimization recommendations</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag ok">Higher conversion</span>
+                <span class="tag">Multi-step automation</span>
+                <span class="tag">Best value</span>
+              </div>
+              <div style="margin-top:18px;">
+                <button class="btn primary" onclick="scrollToSection('contact')">Request a Build</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="pill" style="margin-bottom:14px; background:rgba(251,191,36,.12); border-color:rgba(251,191,36,.24); color:#ffe3a3;">
+                <span>🔁</span>
+                <span>Monthly support</span>
+              </div>
+              <h3>Ongoing Support</h3>
+              <p style="font-size:28px; font-weight:800; color:var(--text); margin-bottom:10px;">$200–$500<span style="font-size:15px; color:var(--muted);">/month</span></p>
+              <p>For businesses that want updates, monitoring, tuning, and gradual expansion after the initial setup.</p>
+              <ul class="bullets">
+                <li>Workflow monitoring</li>
+                <li>Script and prompt updates</li>
+                <li>Light optimization</li>
+                <li>New FAQs or routing tweaks</li>
+                <li>Priority support</li>
+              </ul>
+              <div class="tagrow">
+                <span class="tag ok">Recurring support</span>
+                <span class="tag">Optimization</span>
+                <span class="tag">Scalable</span>
+              </div>
+              <div style="margin-top:18px;">
+                <button class="btn primary" onclick="scrollToSection('contact')">Ask About Support</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice-box" style="margin-top:22px;">
+            <b style="display:block; margin-bottom:6px;">Custom pricing available</b>
+            <span style="color:var(--muted); font-size:14px;">
+              Final pricing depends on call flow complexity, channels used, integrations, and whether you want voice AI, SMS, chatbot, or a combination.
+            </span>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-head">
+                <div>
+                    <h2>Contact</h2>
+                    <p>Tell us what you want to automate. We'll recommend a lean pilot that proves ROI.</p>
+                </div>
+            </div>
+
+            <div class="split">
+                <div class="card">
+                    <h3 style="margin-top:0;">Request a Consultation</h3>
+
+                    <form id="leadForm">
+                        <div>
+                            <label for="name">Name</label>
+                            <input id="name" name="name" placeholder="Your name" required style="width:100%; padding:13px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); outline:none; font-size:14px; font-family:inherit;"/>
+                        </div>
+                        <div style="margin-top:14px;">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="you@company.com" required style="width:100%; padding:13px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); outline:none; font-size:14px; font-family:inherit;"/>
+                        </div>
+                        <!-- Block 8: Phone field -->
+                        <div style="margin-top:14px;">
+                            <label for="phone">Phone</label>
+                            <input id="phone" name="phone" type="tel" placeholder="Your phone number" style="width:100%; padding:13px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); outline:none; font-size:14px; font-family:inherit;"/>
+                        </div>
+                        <div style="margin-top:14px;">
+                            <label for="contactMethod">Preferred contact method</label>
+                            <select id="contactMethod" name="contactMethod" required style="width:100%; padding:13px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); outline:none; font-size:14px; font-family:inherit;">
+                                <option value="">Select…</option>
+                                <option>Email</option>
+                                <option>Phone Call</option>
+                                <option>Text</option>
+                                <option>WhatsApp</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:14px;">
+                            <label for="industry">Industry</label>
+                            <select id="industry" name="industry" required style="width:100%; padding:13px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); outline:none; font-size:14px; font-family:inherit;">
+                                <option value="">Select…</option>
+                                <option>Service Business (Auto/Barber/Trades)</option>
+                                <option>Logistics & Transport</option>
+                                <option>Government / Public Services</option>
+                                <option>Other / Enterprise</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:14px;">
+                            <label for="budget">Budget range</label>
+                            <select id="budget" name="budget" required style="width:100%; padding:13px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); outline:none; font-size:14px; font-family:inherit;">
+                                <option value="">Select…</option>
+                                <option>$1,500–$3,500 (Pilot)</option>
+                                <option>$4,000–$10,000 (Build)</option>
+                                <option>$10,000+ (Enterprise)</option>
+                                <option>Not sure yet</option>
+                            </select>
+                        </div>
+                        <div style="margin-top:14px;">
+                            <label for="message">What do you want to automate?</label>
+                            <textarea id="message" name="message" placeholder="Example: missed calls, follow-up, booking, support chatbot, reporting, internal workflows…" required style="width:100%; padding:13px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:var(--text); outline:none; font-size:14px; font-family:inherit; min-height:120px; resize:vertical;"></textarea>
+                        </div>
+
+                        <button class="btn primary" type="submit" style="width:100%; margin-top:14px;">Send Request</button>
+                        <div class="mini" style="margin-top:8px;">This opens your email app. We can connect a real form handler later.</div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-top:0;">What happens next</h3>
+                    <ul class="bullets" style="margin-top:12px;">
+                        <li>15-minute consult to confirm goal + current process</li>
+                        <li>We recommend your fastest ROI pilot</li>
+                        <li>Install + test + handoff</li>
+                        <li>Optional monthly optimization</li>
+                    </ul>
+
+                    <div style="margin-top:20px; padding:24px; border:1px solid rgba(94,234,212,.25); background:linear-gradient(135deg, rgba(96,165,250,.12), rgba(94,234,212,.12)); border-radius:var(--radius);">
+                        <div>
+                            <b style="display:block; margin-bottom:4px;">Want to hear the AI Receptionist live?</b>
+                            <span style="color:var(--muted); font-size:14px;">Call <a href="tel:+16472504921" style="color:var(--accent);">+1 (647) 250-4921</a> and let it go to the AI. Or write "AI Receptionist" in your message for a quote.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="padding:40px 0; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); margin-top:40px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+                <div>
+                    <b>CompuCode AI</b> © <span id="year"></span>
+                </div>
+                <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                    <a href="#services" onclick="scrollToSection('services'); return false;">Services</a>
+                    <a href="#how-it-works" onclick="scrollToSection('how-it-works'); return false;">How It Works</a>
+                    <a href="#demo" onclick="scrollToSection('demo'); return false;">Live Demo</a>
+                    <a href="#pricing" onclick="scrollToSection('pricing'); return false;">Pricing</a>
+                    <a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Tidio Chat Opener
+        function openTidio(){
+            if (window.tidioChatApi) {
+                window.tidioChatApi.open();
+                return;
+            }
+            let tries = 0;
+            const t = setInterval(() => {
+                tries++;
+                if (window.tidioChatApi) {
+                    window.tidioChatApi.open();
+                    clearInterval(t);
+                }
+                if (tries > 30) clearInterval(t);
+            }, 200);
+        }
+
+        // Demo Animation
+        function bubble(text, meta){
+            const el = document.createElement('div');
+            el.style.padding = '12px';
+            el.style.borderRadius = '14px';
+            el.style.border = '1px solid rgba(255,255,255,.10)';
+            el.style.background = 'rgba(255,255,255,.04)';
+            el.innerHTML = `<div style="font-weight:800; margin-bottom:6px;">${meta}</div>
+                            <div style="color: rgba(232,238,247,.85); line-height:1.45;">${text}</div>`;
+            return el;
+        }
+
+        function runDemo(){
+            const feed = document.getElementById('demoFeed');
+            feed.innerHTML = '<div style="padding:20px; color:var(--muted); text-align:center;">▶ Starting simulation...</div>';
+
+            // Block 11: Updated voice AI demo steps
+            const steps = [
+                { t: 'Call goes unanswered. AI Backup Receptionist takes over.', m: '📞 Voice AI', d: 400 },
+                { t: 'Hi! Thanks for calling. Our team is helping another customer right now, but I can assist you and make sure someone follows up quickly. How can I help today?', m: '🤖 AI Receptionist', d: 1000 },
+                { t: 'Hi, I wanted to ask about booking an appointment.', m: '👤 Caller', d: 1800 },
+                { t: 'Absolutely. May I have your name and the best number to reach you?', m: '🤖 AI Receptionist', d: 2500 },
+                { t: 'John, 647-555-1234.', m: '👤 Caller', d: 3300 },
+                { t: 'Thanks John. Would you like a booking link by text, or would you prefer a callback?', m: '🤖 AI Receptionist', d: 4100 },
+                { t: 'Send me the booking link.', m: '👤 Caller', d: 4900 },
+                { t: 'Perfect. A booking link has been sent by text, and your request has been logged for the team.', m: '✅ System Follow-up', d: 5700 }
+            ];
+
+            setTimeout(() => {
+                feed.innerHTML = '';
+            }, 300);
+
+            steps.forEach(s => {
+                setTimeout(() => feed.appendChild(bubble(s.t, s.m)), s.d);
+            });
+        }
+
+        // Navigation
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+            // Close mobile menu
+            const menu = document.querySelector('.nav-links');
+            menu.classList.remove('active');
+            document.querySelector('.mobile-toggle').textContent = '☰';
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-links');
+            const toggle = document.querySelector('.mobile-toggle');
+            menu.classList.toggle('active');
+            toggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
+        }
+
+        // Auto-run demo on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const feed = document.getElementById('demoFeed');
+                if (feed) {
+                    feed.innerHTML = '<div style="padding:30px; color:var(--muted); text-align:center; border:2px dashed rgba(94,234,212,.3); border-radius:12px;">👆 Click "Simulate Demo" above — or call <a href=\'tel:+16472504921\' style=\'color:var(--accent)\'>+1 (647) 250-4921</a> to hear the live AI Receptionist!</div>';
+                }
+            }, 500);
+        });
+
+        // Contact Form Submission
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            const yearElement = document.getElementById('year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            // Handle form submission — Block 9: phone included
+            const leadForm = document.getElementById('leadForm');
+            if (leadForm) {
+                leadForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const get = (id) => document.getElementById(id).value.trim();
+                    const to = "Bossesai2025@gmail.com";
+                    const subject = encodeURIComponent("CompuCode AI Consultation Request - " + get("industry"));
+
+                    const body = `New Consultation Request
+
+Name: ${get("name")}
+Email: ${get("email")}
+Phone: ${get("phone")}
+Preferred contact: ${get("contactMethod")}
+Industry: ${get("industry")}
+Budget: ${get("budget")}
+
+Automation Request:
+${get("message")}
+`;
+
+                    window.location.href = `mailto:${to}?subject=${subject}&body=${encodeURIComponent(body)}`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
