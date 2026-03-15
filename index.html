@@ -413,6 +413,41 @@
             background: linear-gradient(135deg, rgba(96,165,250,.08), rgba(94,234,212,.08));
             border-radius: var(--radius);
         }
+
+        .grid5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .who-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .who-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        @media (max-width: 1050px) {
+            .grid5 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .grid5 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 420px) {
+            .grid5 {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -429,6 +464,7 @@
                     <a href="#how-it-works" onclick="scrollToSection('how-it-works'); return false;">How It Works</a>
                     <a href="#demo" onclick="scrollToSection('demo'); return false;">Live Demo</a>
                     <a href="#pricing" onclick="scrollToSection('pricing'); return false;">Pricing</a>
+                    <a href="#who" onclick="scrollToSection('who'); return false;">Who It's For</a>
                     <a href="#contact" class="btn">Contact</a>
                 </div>
                 <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
@@ -560,22 +596,34 @@
             <div class="section-head">
                 <div>
                     <h2>How It Works</h2>
-                    <p>AI doesn't replace your team. It covers the gaps when calls go unanswered.</p>
+                    <p>AI doesn't replace your staff. It covers the gaps when calls go unanswered.</p>
                 </div>
             </div>
 
             <div class="grid3">
                 <div class="card">
                     <h3>1. Your team gets first chance</h3>
-                    <p>Your phone rings normally. If someone answers, business continues as usual.</p>
+                    <p>Your phone rings normally. If someone answers, business continues exactly as usual.</p>
+                    <div class="tagrow">
+                        <span class="tag">Normal workflow</span>
+                        <span class="tag ok">No disruption</span>
+                    </div>
                 </div>
                 <div class="card">
                     <h3>2. AI steps in only when needed</h3>
-                    <p>If nobody answers, AI greets the caller, gathers details, and keeps the lead engaged.</p>
+                    <p>If nobody answers, the AI Backup Receptionist greets the caller, gathers details, and keeps the lead engaged.</p>
+                    <div class="tagrow">
+                        <span class="tag ok">Overflow support</span>
+                        <span class="tag">Lead retention</span>
+                    </div>
                 </div>
                 <div class="card">
                     <h3>3. You get the lead instantly</h3>
-                    <p>The call summary, callback request, or booking intent is sent to your team right away.</p>
+                    <p>The call summary, callback request, or booking intent is sent to your team so someone can follow up quickly.</p>
+                    <div class="tagrow">
+                        <span class="tag ok">Fast follow-up</span>
+                        <span class="tag">Clear summaries</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -723,12 +771,82 @@
           </div>
         </section>
 
+        <!-- Who It's For -->
+        <section id="who">
+          <div class="section-head">
+            <div>
+              <h2>Who It's For</h2>
+              <p>Any business that loses revenue when calls go unanswered. Here's who we install for most.</p>
+            </div>
+          </div>
+
+          <div class="grid5">
+            <div class="card who-card">
+              <div class="who-icon">🔧</div>
+              <h3>Auto &amp; Repair Shops</h3>
+              <p>Missed calls during busy bays mean lost bookings. AI answers overflow, captures the job request, and sends a booking link instantly.</p>
+              <div class="tagrow">
+                <span class="tag ok">Booking recovery</span>
+                <span class="tag">After-hours</span>
+              </div>
+            </div>
+
+            <div class="card who-card">
+              <div class="who-icon">💆</div>
+              <h3>Med Spas</h3>
+              <p>High-value appointments walk away when nobody answers. AI qualifies the caller, answers service questions, and routes to booking.</p>
+              <div class="tagrow">
+                <span class="tag ok">High-value leads</span>
+                <span class="tag">24/7 intake</span>
+              </div>
+            </div>
+
+            <div class="card who-card">
+              <div class="who-icon">🏗️</div>
+              <h3>Contractors</h3>
+              <p>On-site crews can't pick up. AI captures the job details, sends a callback confirmation, and keeps the lead warm until you're free.</p>
+              <div class="tagrow">
+                <span class="tag ok">Job capture</span>
+                <span class="tag">Callback logic</span>
+              </div>
+            </div>
+
+            <div class="card who-card">
+              <div class="who-icon">⚖️</div>
+              <h3>Law Firms</h3>
+              <p>Potential clients call once and move on. AI pre-screens the inquiry, collects contact details, and flags urgency for your team.</p>
+              <div class="tagrow">
+                <span class="tag ok">Lead pre-screen</span>
+                <span class="tag">Urgency routing</span>
+              </div>
+            </div>
+
+            <div class="card who-card">
+              <div class="who-icon">🚛</div>
+              <h3>Logistics &amp; Dispatch</h3>
+              <p>Dispatch windows are tight. AI handles overflow inquiries, collects load or pickup details, and queues them for your next available coordinator.</p>
+              <div class="tagrow">
+                <span class="tag ok">Overflow intake</span>
+                <span class="tag">Detail capture</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice-box" style="margin-top:22px;">
+            <b style="display:block; margin-bottom:6px;">Don't see your industry?</b>
+            <span style="color:var(--muted); font-size:14px;">
+              If your business takes calls and loses leads when nobody answers, we can build a pilot for you.
+              <button class="btn primary" onclick="scrollToSection('contact')" style="margin-left:12px; font-size:13px; padding:8px 14px;">Get in Touch</button>
+            </span>
+          </div>
+        </section>
+
         <!-- Contact -->
         <section id="contact">
             <div class="section-head">
                 <div>
                     <h2>Contact</h2>
-                    <p>Tell us what you want to automate. We'll recommend a lean pilot that proves ROI.</p>
+                    <p>Tell us what happens when your team gets busy. We'll recommend the fastest AI pilot to catch missed opportunities.</p>
                 </div>
             </div>
 
@@ -820,6 +938,7 @@
                     <a href="#how-it-works" onclick="scrollToSection('how-it-works'); return false;">How It Works</a>
                     <a href="#demo" onclick="scrollToSection('demo'); return false;">Live Demo</a>
                     <a href="#pricing" onclick="scrollToSection('pricing'); return false;">Pricing</a>
+                    <a href="#who" onclick="scrollToSection('who'); return false;">Who It's For</a>
                     <a href="#contact" onclick="scrollToSection('contact'); return false;">Contact</a>
                 </div>
             </div>
