@@ -706,7 +706,7 @@
                     <div class="hero-cta">
                         <button class="btn primary" onclick="scrollToSection('contact')">Book a Consultation</button>
                         <!-- Block 7: Call the Demo Line CTA -->
-                        <a class="btn primary" href="tel:+16472504921">Call the Demo Line</a>
+                        <a class="btn primary" href="tel:+13653603493">Call the Demo Line</a>
                         <button class="btn primary" onclick="scrollToSection('demo')">See Live Demo</button>
                         <button class="btn" onclick="openChat()">Chat with AI</button>
                     </div>
@@ -851,7 +851,7 @@
                 </div>
                 <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
                     <!-- Block 7: Call demo line button also in demo section -->
-                    <a class="btn primary" href="tel:+16472504921">📞 Call the Demo Line</a>
+                    <a class="btn primary" href="tel:+13653603493">📞 Call the Demo Line</a>
                     <button class="btn" onclick="runDemo()">Simulate Demo</button>
                 </div>
             </div>
@@ -866,7 +866,7 @@
                         <button class="btn primary" onclick="openChat()">Ask the Demo Bot</button>
                     </div>
 
-                    <div class="mini">Tip: Call <a href="tel:+16472504921" style="color:var(--accent);">+1 (647) 250-4921</a> to experience the live AI Receptionist demo.</div>
+                    <div class="mini">Tip: Call <a href="tel:+13653603493" style="color:var(--accent);">+1 (365) 360-3493</a> to experience the live AI Receptionist demo.</div>
                 </div>
 
                 <div class="card">
@@ -1133,7 +1133,7 @@
                     <div style="margin-top:20px; padding:24px; border:1px solid rgba(94,234,212,.25); background:linear-gradient(135deg, rgba(96,165,250,.12), rgba(94,234,212,.12)); border-radius:var(--radius);">
                         <div>
                             <b style="display:block; margin-bottom:4px;">Want to hear the AI Receptionist live?</b>
-                            <span style="color:var(--muted); font-size:14px;">Call <a href="tel:+16472504921" style="color:var(--accent);">+1 (647) 250-4921</a> and let it go to the AI. Or write "AI Receptionist" in your message for a quote.</span>
+                            <span style="color:var(--muted); font-size:14px;">Call <a href="tel:+13653603493" style="color:var(--accent);">+1 (365) 360-3493</a> and let it go to the AI. Or write "AI Receptionist" in your message for a quote.</span>
                         </div>
                     </div>
                 </div>
@@ -1235,13 +1235,13 @@
                 const data = await res.json();
                 hideTyping();
 
-                const reply = data.reply || "Sorry, something went wrong. Call us at 647-250-4921!";
+                const reply = data.reply || "Sorry, something went wrong. Call us at 365-360-3493!";
                 appendMessage('bot', reply);
                 chatState.messages.push({ role: 'assistant', content: reply });
 
             } catch (err) {
                 hideTyping();
-                appendMessage('bot', "Connection issue — call us directly at 647-250-4921.");
+                appendMessage('bot', "Connection issue — call us directly at 365-360-3493.");
             }
 
             chatState.loading = false;
@@ -1339,7 +1339,7 @@
             setTimeout(() => {
                 const feed = document.getElementById('demoFeed');
                 if (feed) {
-                    feed.innerHTML = '<div style="padding:30px; color:var(--muted); text-align:center; border:2px dashed rgba(94,234,212,.3); border-radius:12px;">👆 Click "Simulate Demo" above — or call <a href=\'tel:+16472504921\' style=\'color:var(--accent)\'>+1 (647) 250-4921</a> to hear the live AI Receptionist!</div>';
+                    feed.innerHTML = '<div style="padding:30px; color:var(--muted); text-align:center; border:2px dashed rgba(94,234,212,.3); border-radius:12px;">👆 Click "Simulate Demo" above — or call <a href=\'tel:+13653603493\' style=\'color:var(--accent)\'>+1 (365) 360-3493</a> to hear the live AI Receptionist!</div>';
                 }
             }, 500);
         });
